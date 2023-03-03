@@ -45,7 +45,7 @@ describe('Testes da Funcionalidade Usuários', () => {
          })
     });
 
-    it.only('Deve validar um usuário com email inválido', () => {
+    it('Deve validar um usuário com email inválido', () => {
          cy.request({
           method:'GET',
           url:'usuarios',
