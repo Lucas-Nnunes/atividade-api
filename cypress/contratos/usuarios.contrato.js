@@ -1,3 +1,4 @@
+import { join } from 'cypress/types/bluebird';
 
 const Joi = require ('Joi')
 
@@ -7,9 +8,11 @@ const usuariosSchma = Joi.object({
         nome: Joi.string(),
         email: Joi.string(),
         password: Joi.string(),
-        administrador: Joi.string(),
+        adminstrador: Joi.string(),
         _id: Joi.string()
     })
 })
+        
 
-export default usuarioSchma;
+
+export default usuariosSchma;

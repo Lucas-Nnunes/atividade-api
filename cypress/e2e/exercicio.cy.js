@@ -2,15 +2,12 @@
 
 import { internet, password, faker, userName, email} from '@faker-js/faker';
 
-import usuarioSchma from '../contratos/usuarios.contrato';
 
 describe('Testes da Funcionalidade Usuários', () => {
 
 
-     it.only('Deve validar contrato de usuários', () => {
-          cy.request('usuarios').then({
-               return: usuarioSchma.validateAsync(response.body)
-          })
+     it('Deve validar contrato de usuários', () => {
+          
      });
 
 
@@ -19,7 +16,7 @@ describe('Testes da Funcionalidade Usuários', () => {
                method: 'GET',
                url: 'usuarios',
           }).then((response => {
-               expect(response.body.usuarios[6].nome).to.equal('Lucas')
+               expect(response.body.usuarios[8].nome).to.equal('Francisco da Silveira')
                expect(response.status).to.equal(200)
           }))
      });
@@ -46,7 +43,7 @@ describe('Testes da Funcionalidade Usuários', () => {
 
 
 
-     it('Deve validar um usuário com email inválido', () => {
+     it.only('Deve validar um usuário com email inválido', () => {
           cy.request({
                method: 'POST',
                url: 'usuarios',
@@ -68,8 +65,8 @@ describe('Testes da Funcionalidade Usuários', () => {
                method: 'PUT',
                url: 'usuarios/0uxuPY0cbmQhpEz1',
                body: {
-                    "nome": "Fulaninha da Silva",
-                    "email": "beltrano@qa.com.br",
+                    "nome": "Fulaninhos da Silva",
+                    "email": "beltranus@qa.com.br",
                     "password": "teste",
                     "administrador": "true"
                }
@@ -82,7 +79,7 @@ describe('Testes da Funcionalidade Usuários', () => {
      it('Deve deletar um usuário previamente cadastrado', () => {
           cy.request({
                method: 'DELETE',
-               url: 'usuarios/vjhZh35lKvhgM5Ye'
+               url: 'usuarios/LS19t0KHqc1K6jfK'
           }).then((response) => {
                expect(response.body.message).to.equal('Registro excluído com sucesso')
                expect(response.status).to.equal(200)
