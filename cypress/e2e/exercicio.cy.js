@@ -2,12 +2,15 @@
 
 import { internet, password, faker, userName, email} from '@faker-js/faker';
 
+import contrato from '../contratos/usuarios.contrato'
 
 describe('Testes da Funcionalidade Usuários', () => {
 
 
      it('Deve validar contrato de usuários', () => {
-          
+          cy.request('usuarios').then(response =>{
+               return contrato.validateAsync(response.body)
+          })
      });
 
 
