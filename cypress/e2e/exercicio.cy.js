@@ -78,7 +78,7 @@ describe('Testes da Funcionalidade Usuários', () => {
           })
      });
 
-     it.only('Deve deletar um usuário previamente cadastrado', () => {
+     it('Deve deletar um usuário previamente cadastrado', () => {
           let usuario = `Usuario ${Math.floor(Math.random()*10000)}`
           cy.Cadastrar(usuario, faker.internet.email(), faker.internet.password(), 'true')
           .then(response =>{
