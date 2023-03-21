@@ -24,5 +24,31 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
+Cypress.Commands.add('Cadastrar', (nome, email, password, administrador)=>{
+cy.request({
+    method: 'POST',
+    url: 'usuarios',
+    failOnStatusCode: false,
+    body: {
+        'nome':nome,
+        'email':email,
+        'password': password,
+        'administrador': administrador
+    }
 
+})
+})
 
+Cypress.Commands.add('Editar', (nome, email, password, administrador, id)=>{
+cy.request({
+    method: 'PUT',
+    failOnStatusCode: false,
+    url: 'usuarios/1Mi7pjZBRyX05QUS',
+    'nome': nome,
+    'email': email, 
+    'password': password,
+    'administrador': administrador,
+    'id': id
+    
+})
+})
