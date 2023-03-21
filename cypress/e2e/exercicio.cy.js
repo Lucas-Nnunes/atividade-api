@@ -3,12 +3,13 @@
 import { internet, password, faker, userName, email } from '@faker-js/faker';
 import { expect } from 'chai';
 
+import contrato from '../contratos/usuarios.contrato'
 
 describe('Testes da Funcionalidade Usuários', () => {
 
 
      it('Deve validar contrato de usuários', () => {
-
+          
      });
 
 
