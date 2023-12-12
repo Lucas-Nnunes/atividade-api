@@ -9,18 +9,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:  
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
     - uses: actions/setup-node@v4
       with:
         node-version: '18'
     - name: Cypress run
-      uses: cypress-io/github-action@v6
+      uses: cypress-io/github-action@v4
       continue-on-error: true 
       with: 
        install-command: npm install 
        browser: chrome 
+       start: npm start 
     - name: Publish Report
-      uses: peaceiris/actions-gh-pages@v3
+      uses: peaceiris/actions-gh-pages@v4
       with:
            github_token: ${{ secrets.GITHUB_TOKEN }}
            publish_dir: ./mochawesome-report
